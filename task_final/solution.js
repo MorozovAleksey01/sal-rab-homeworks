@@ -33,8 +33,9 @@
 //    }
 // }
 
+
 function sendRequest(name, phone, address, goods, sum) {
-    let data = {goods: [], order: {}};
+    let data = {client: '', order: {}, goods: []};
 
     let countOfGoods = goods.length;
 
@@ -43,11 +44,14 @@ function sendRequest(name, phone, address, goods, sum) {
     }
 
     data.order.address = address;
-    data.order.sum = name + phone + address + goods + sum;
+    data.order.sum = sum;
 
-    data.client = 'Иван';
+    data.client = name + " " + phone;
 
     let jsonData = JSON.stringify(data);
 
     return jsonData;
 }
+
+
+//sendRequest("Иван", "+7(987)65-43-210", "ул. Ленина, дом 2, 4 подъезд, 5 этаж, кв 53", "Пицца", 900);
